@@ -3,6 +3,8 @@ import * as S from "./styled";
 
 import { GET_COUNTRIES } from "../../services/api";
 import CountriesItem from "../../components/CountriesItem";
+import SearchInput from "../../components/SearchInput";
+import SearchSelect from "../../components/SearchSelect";
 
 const Home = () => {
   const [countries, setCoutries] = React.useState([]);
@@ -19,23 +21,26 @@ const Home = () => {
     console.log(countries);
   }, []);
   return (
-    <S.ContentCountryList>
-      <S.Container>
-        <S.WrapperContentCoutry>
-          {countries.length > 0 &&
-            countries.map((item, i) => (
-              <CountriesItem
-                key={i}
-                image={item.flags.png}
-                name={item.name.official}
-                population={item.population}
-                capital={item.capital}
-                region={item.region}
-              />
-            ))}
-        </S.WrapperContentCoutry>
-      </S.Container>
-    </S.ContentCountryList>
+    <>
+      <S.HeadingBar>
+        <S.Container>
+          <S.WrapperHeadingBar>
+            <SearchInput />
+            <SearchSelect />
+          </S.WrapperHeadingBar>
+        </S.Container>
+      </S.HeadingBar>
+      <S.ContentCountryList>
+        <S.Container>
+          <S.WrapperContentCoutry>
+            {countries.length > 0 &&
+              countries.map((country) => (
+                <CountriesItem key={country.id} country={country} />
+              ))}
+          </S.WrapperContentCoutry>
+        </S.Container>
+      </S.ContentCountryList>
+    </>
   );
 };
 

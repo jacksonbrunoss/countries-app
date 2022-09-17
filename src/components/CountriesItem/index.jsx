@@ -1,23 +1,23 @@
 import React from "react";
 import * as S from "./styled";
 
-const CountriesItem = ({ image, population, region, capital, name }) => {
+const CountriesItem = ({ country }) => {
   return (
     <S.CountriesItem>
       <div>
-        <img src={image} alt={name} />
+        <img src={country.flags.svg} alt={country.name.official} />
       </div>
-      <h3>{name}</h3>
+      <h3>{country.name.official}</h3>
       <p>
-        <strong>População: </strong> {population}
+        <strong>População: </strong> {country.population}
       </p>
       <p>
         <strong>Região: </strong>
-        {region}
+        {country.region}
       </p>
       <p>
         <strong>Capital: </strong>
-        {capital}
+        {country.capital}
       </p>
     </S.CountriesItem>
   );

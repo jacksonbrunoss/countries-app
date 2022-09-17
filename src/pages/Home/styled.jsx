@@ -9,8 +9,16 @@ export const Container = styled.div`
   padding: 0 1rem;
 `;
 export const WrapperContentCoutry = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+`;
+export const HeadingBar = styled.div`
+  width: 100%;
+  padding: 32px 16px;
+`;
+export const WrapperHeadingBar = styled.div`
+  width: 100%;
   display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 `;
