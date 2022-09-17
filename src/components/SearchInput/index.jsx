@@ -2,13 +2,18 @@ import React from "react";
 import * as S from "./styled";
 import { FaSearch } from "react-icons/fa";
 
-const SearchInput = () => {
+const SearchInput = ({ handleGetSearch, search, change }) => {
   return (
     <S.SearchInput>
-      <button>
+      <button onClick={handleGetSearch}>
         <FaSearch />
       </button>
-      <input type="text" placeholder="Search for a country" />
+      <input
+        onChange={change}
+        value={search}
+        type="text"
+        placeholder="Search for a country"
+      />
     </S.SearchInput>
   );
 };

@@ -8,3 +8,11 @@ export function GET_COUNTRIES() {
     },
   };
 }
+export function GET_SEARCH(isSearch) {
+  return {
+    url: API_URL + `/name/${isSearch}`,
+    options: {
+      method: "GET",
+    },
+  };
+}
