@@ -16,3 +16,11 @@ export function GET_SEARCH(isSearch) {
     },
   };
 }
+export function GET_REGION(region) {
+  return {
+    url: API_URL + `/region/${region}`,
+    options: {
+      method: "GET",
+    },
+  };
+}

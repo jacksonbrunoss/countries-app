@@ -10,6 +10,7 @@ import SearchSelect from "../../components/SearchSelect";
 const Home = () => {
   const [countries, setCoutries] = React.useState([]);
   const [search, setSearch] = React.useState("");
+  const [region, setRegion] = React.useState("");
   const navigate = useNavigate();
 
   const handleGetCountries = async () => {
@@ -22,6 +23,10 @@ const Home = () => {
   const getTarget = (e) => {
     setSearch(e.target.value);
   };
+  const getTargetReg = (e) => {
+    setRegion(e.target.value);
+    handleSelectRegion();
+  };
   const handleGetSearch = () => {
     if (!search) return;
     navigate(`/search`, { state: { search } });
@@ -29,9 +34,14 @@ const Home = () => {
     console.log(search);
   };
 
+  const handleSelectRegion = (e) => {
+    navigate(`/region`, { state: { region } });
+  };
+
   React.useEffect(() => {
     handleGetCountries();
   }, []);
+  console.log(region);
   return (
     <>
       <S.HeadingBar>
@@ -42,7 +52,7 @@ const Home = () => {
               change={getTarget}
               search={search}
             />
-            <SearchSelect />
+            <SearchSelect change={getTargetReg} region={region} />
           </S.WrapperHeadingBar>
         </S.Container>
       </S.HeadingBar>

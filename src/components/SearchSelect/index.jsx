@@ -1,11 +1,11 @@
 import React from "react";
 import * as S from "./styled";
 
-const SearchSelect = () => {
+const SearchSelect = ({ change, region }) => {
   return (
     <S.SearchSelect>
-      <select name="select">
-        <option selected>Filter by Region</option>
+      <select value={region} onChange={change}>
+        <option value="">Filter by Region</option>
         <option value="africa">Afríca</option>
         <option value="america">America</option>
         <option value="asia">Asia</option>
